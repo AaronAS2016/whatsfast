@@ -14,7 +14,6 @@ const Container = styled.div`
 const Title = styled.h1`
     width:80%;
     text-align:center;
-    font-size:5em;
     margin-bottom:0;
 `
 
@@ -65,7 +64,7 @@ export const Home = () => {
     return(
         <Container>
             <Title>Whatsfast.</Title>
-            <p>Send a Whatsapp message without save the number! 🕵️‍♀️🕵🕵️‍♂️ </p>
+            <p style={{textAlign: "center"}}>Send a Whatsapp message without save the number! 🕵️‍♀️🕵🕵️‍♂️ </p>
 
             <Form>
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "parcel src/index.html",
-    "build": "parcel build src/index.html -d public/",
+    "build": "sudo rm public/* && parcel build src/index.html -d public/",
     "clear-build-cache": "rm -rf .cache/ dist/",
     "dev": "parcel src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock parcel src/index.html",
