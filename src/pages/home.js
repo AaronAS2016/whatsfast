@@ -1,9 +1,20 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { FormSend } from '../components/formSend';
+import { DetailSection } from '../components/detail';
+import { Footer } from '../components/footer';
 
+const Wrapper = styled.div`
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    animation: fadeIn .3s;
+
+`
 const Container = styled.div`
     width:100%;
-    height:100vh;
+    padding: 20% 0;
+    margin:20px 0;
     display:flex;
     justify-content:center;
     flex-direction:column;
@@ -15,88 +26,27 @@ const Title = styled.h1`
     width:80%;
     text-align:center;
     margin-bottom:0;
+    font-size:4em;
+
 `
 
-const Form = styled.div `
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    align-items:center;
-
-
-    & > *{
-        margin: 10px 0;
-    }
-`
-
-
-
-const SendButton = styled.div`
-    background:var(--accent);
-    padding:20px;
-    border-radius:5px;
-    color:white;
-    text-align:center;
-    cursor:pointer;
-    width:100%;
-    box-sizing:border-box;
-`
-
-
-const Input = styled.input`
-    border:1px solid #eaeaea;
-    padding:20px;
-    width:100%;
-    box-sizing:border-box;
-`
-
-
-const BASE_URL_WHATSAPP = `https://wa.me/[PHONE]`
 export const Home = () => {
+    return (
+        <Wrapper>
+            <Container>
+                <Title>Whatsfast.</Title>
+                <p style={{ textAlign: "center" }}>Send a Whatsapp message without save the number! 🕵️‍♀️🕵🕵️‍♂️ </p>
 
-    const [phone, setPhone] = useState("");
+                <FormSend />
 
-    const sendWhatsApp = useCallback((phone) => {
-        window.location.href= BASE_URL_WHATSAPP.replace("[PHONE]", phone).split("").join("")
-    })
-
-
-    return(
-        <Container>
-            <Title>Whatsfast.</Title>
-            <p style={{textAlign: "center"}}>Send a Whatsapp message without save the number! 🕵️‍♀️🕵🕵️‍♂️ </p>
-
-            <Form>
-
-                <label>
-                    Phone Number
+            </Container>
 
 
-                    <Input 
-                    type="number"
-                    placeholder="54 XXXX XXXX"
-                    onChange = {(e) => setPhone(e.target.value)}
-                    onKeyPress={event => {
-                        if (event.key === 'Enter') {
-                            sendWhatsApp(phone)
-                        }
-                    }}
-                    value={phone}
-
-                    />
-
-                </label>
-
-                
+            <DetailSection />
 
 
-                <SendButton onClick={() => sendWhatsApp(phone)}>
-                    Send Whatsapp
-                </SendButton>
-                
+            <Footer />
+        </Wrapper>
 
-
-            </Form>
-        </Container>
     )
 }

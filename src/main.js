@@ -18,10 +18,11 @@ const GlobalStyle = createGlobalStyle`
   }
   
 
-  html, body {
+  html, body, #app {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    height:100%;  
   }
   body {
     font-family: helvetica;
